@@ -1,106 +1,3 @@
-// import 'package:flutter/material.dart';
-
-// //import pages to display upon clicked tabs in form of eg: HomePage()
-// import './pages/Home.dart';
-// import './pages/Work.dart';
-// import './pages/Landscape.dart';
-
-// void main() => runApp(MyApp());
-
-// //differences between stateful and stateless
-// //https://flutterdoc.com/stateful-or-stateless-widgets-42a132e529ed
-
-// class MyApp extends StatefulWidget {
-  
-//   @override
-//   State<StatefulWidget> createState() {
-//     return MyAppState();
-//   }
-// }
-// class MyAppState extends State<MyApp> {
-//   //set initial value
-//   int _selectedPage = 0;
-
-//   //workaround hack
-//   var _selectedTitle = 'Home';
-
-//   //set array that pass page that been imported
-//   final _pageOptions = [
-//     HomePage(),
-//     WorkPage(),
-//     LandscapePage(),
-//   ];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-
-//       title: 'Flutter',
-
-//       //Theme
-//       theme: ThemeData(
-//         primarySwatch: Colors.red,
-//       ),
-
-//       //Scaffold
-//       home: Scaffold(
-
-//         //header
-//         appBar: AppBar(
-//           title: Text(_selectedTitle),
-//         ),
-
-//         //body -> content of page selected
-//         //fired via sidemenu @ tabs (refer: onTap)
-//         body: _pageOptions[ _selectedPage ],
-
-//         bottomNavigationBar: BottomNavigationBar(
-
-//           //currentIndex -> tab index value
-//           currentIndex: _selectedPage,
-
-//           //upon tap
-//           onTap: (int index) {
-//             setState(() {
-//               _selectedPage = index;
-
-//               if(index == 0){
-//                 _selectedTitle = 'Home';
-//               }
-
-//               if(index == 1){
-//                 _selectedTitle = 'Work';
-//               }
-
-//               if(index == 2){
-//                 _selectedTitle = 'Landscape';
-//               }
-//             });
-//           },
-
-//           items: [
-//             BottomNavigationBarItem(
-//               icon: Icon(Icons.home),
-//               title: Text('Home')
-//             ),
-            
-//             BottomNavigationBarItem(
-//               icon: Icon(Icons.work),
-//               title: Text('Work')
-//             ),
-            
-//             BottomNavigationBarItem(
-//               icon: Icon(Icons.landscape),
-//               title: Text('Landscape')
-//             ),
-//           ],
-//         ),
-//       ),
-      
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 
 //Import pages as eg: HomePage()
@@ -112,8 +9,10 @@ import './pages/Landscape.dart';
 //Upon init run this
 void main() => runApp(MyApp());
 
-//Since materialApp is used once, declare it on StatelessWidget then 
-//point the home into a StatefulWidget
+/*
+  Since materialApp is used once, declare it on StatelessWidget then 
+  point the home into a StatefulWidget
+*/
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -121,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Code Sample for material.Scaffold',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: MyStatefulWidget(),
     );
@@ -163,8 +62,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
 
+      //header
       appBar: AppBar(
         title: Text(_selectedTitle),
+        
+        //https://stackoverflow.com/questions/49015038/removing-the-drop-shadow-from-a-scaffold-appbar-in-flutter
+
+        elevation: 0.0,
       ),
 
       //body -> content of page selected
@@ -181,7 +85,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             DrawerHeader(
               child: Text('Drawer Header'),
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Colors.red,
               ),
             ),
 
@@ -265,3 +169,4 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     );
   }
 }
+
