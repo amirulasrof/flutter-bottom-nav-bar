@@ -67,7 +67,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         title: Text(_selectedTitle),
         
         //https://stackoverflow.com/questions/49015038/removing-the-drop-shadow-from-a-scaffold-appbar-in-flutter
-
+      
         elevation: 0.0,
       ),
 
